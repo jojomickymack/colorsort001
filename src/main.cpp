@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
             boxRGBA(renderer, gb.left, gb.bottom, gb.right, gb.top, 0, 255, 0, 255);
             if (!sorted) {
                 sorted = true;
-                myVec = myColors.sortGreen();
+                myVec = myColors.sortGreen(myVec);
             }
         } else rectangleRGBA(renderer, gb.left, gb.bottom, gb.right, gb.top, 0, 255, 0, 255);
 
@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
             boxRGBA(renderer, bb.left, bb.bottom, bb.right, bb.top, 0, 0, 255, 255);
             if (!sorted) {
                 sorted = true;
-                myVec = myColors.sortBlue();
+                myVec = myColors.sortBlue(myVec);
             }
         } else rectangleRGBA(renderer, bb.left, bb.bottom, bb.right, bb.top, 0, 0, 255, 255);
 
@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
             boxRGBA(renderer, ab.left, ab.bottom, ab.right, ab.top, 255, 255, 255, 255);
             if (!sorted) {
                 sorted = true;
-                myVec = myColors.sortAlpha();
+                myVec = myColors.sortAlpha(myVec);
             }
         } else rectangleRGBA(renderer, ab.left, ab.bottom, ab.right, ab.top, 255, 255, 255, 255);
 
@@ -124,8 +124,6 @@ int main(int argc, char *argv[]) {
         }
 
         SDL_RenderPresent(renderer);
-
-        //SDL_BlitSurface(imageSurface, NULL, windowSurface, NULL);
         SDL_UpdateWindowSurface(window);
     }
 

@@ -11,7 +11,8 @@ int width;
 
 ColorContainer::ColorContainer() {
     srand(time(NULL));
-    // instantiate the color arrays and fill them with random values - dummy value of 100 for the window width
+
+    // this is how many stripes you get TODO: add a control in the ui to modify the number of stripes
     width = 500;
 
     int i = 0;
@@ -28,66 +29,66 @@ vector<ColorType> ColorContainer::getColorVec() {
     return myColors;
 }
 
-vector<ColorType> ColorContainer::sortRed(vector<ColorType> colors) {
+vector<ColorType> ColorContainer::sortRed(vector<ColorType> yourColors) {
     int j;
     ColorType tempColor;
 
-    for(int i = 1; i < myColors.size(); i++) {
-        tempColor = myColors[i];
+    for(int i = 1; i < yourColors.size(); i++) {
+        tempColor = yourColors[i];
         j = i - 1;
-        while((tempColor.r < myColors[j].r) && (j >= 0)) {
-            myColors[j + 1] = myColors[j];
+        while((tempColor.r < yourColors[j].r) && (j >= 0)) {
+            yourColors[j + 1] = yourColors[j];
             j = j - 1;
         }
-        myColors[j + 1] = tempColor;
+        yourColors[j + 1] = tempColor;
     }
-    return myColors;
+    return yourColors;
 }
 
-vector<ColorType> ColorContainer::sortGreen() {
+vector<ColorType> ColorContainer::sortGreen(vector<ColorType> yourColors) {
     int j;
     ColorType tempColor;
 
-    for(int i = 1; i < myColors.size(); i++) {
-        tempColor = myColors[i];
+    for(int i = 1; i < yourColors.size(); i++) {
+        tempColor = yourColors[i];
         j = i - 1;
-        while((tempColor.g < myColors[j].g) && (j >= 0)) {
-            myColors[j + 1] = myColors[j];
+        while((tempColor.g < yourColors[j].g) && (j >= 0)) {
+            yourColors[j + 1] = yourColors[j];
             j = j - 1;
         }
-        myColors[j + 1] = tempColor;
+        yourColors[j + 1] = tempColor;
     }
-    return myColors;
+    return yourColors;
 }
 
-vector<ColorType> ColorContainer::sortBlue() {
+vector<ColorType> ColorContainer::sortBlue(vector<ColorType> yourColors) {
     int j;
     ColorType tempColor;
 
-    for(int i = 1; i < myColors.size(); i++) {
-        tempColor = myColors[i];
+    for(int i = 1; i < yourColors.size(); i++) {
+        tempColor = yourColors[i];
         j = i - 1;
-        while((tempColor.b < myColors[j].b) && (j >= 0)) {
-            myColors[j + 1] = myColors[j];
+        while((tempColor.b < yourColors[j].b) && (j >= 0)) {
+            yourColors[j + 1] = yourColors[j];
             j = j - 1;
         }
-        myColors[j + 1] = tempColor;
+        yourColors[j + 1] = tempColor;
     }
-    return myColors;
+    return yourColors;
 }
 
-vector<ColorType> ColorContainer::sortAlpha() {
+vector<ColorType> ColorContainer::sortAlpha(vector<ColorType> yourColors) {
     int j;
     ColorType tempColor;
 
-    for(int i = 1; i < myColors.size(); i++) {
-        tempColor = myColors[i];
+    for(int i = 1; i < yourColors.size(); i++) {
+        tempColor = yourColors[i];
         j = i - 1;
-        while((tempColor.a < myColors[j].a) && (j >= 0)) {
-            myColors[j + 1] = myColors[j];
+        while((tempColor.a < yourColors[j].a) && (j >= 0)) {
+            yourColors[j + 1] = yourColors[j];
             j = j - 1;
         }
-        myColors[j + 1] = tempColor;
+        yourColors[j + 1] = tempColor;
     }
-    return myColors;
+    return yourColors;
 }

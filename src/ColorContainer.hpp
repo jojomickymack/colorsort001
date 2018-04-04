@@ -23,9 +23,9 @@ public:
 	vector<ColorType> getColorVec();
 
     vector<ColorType> sortRed(vector<ColorType>);
-    vector<ColorType> sortGreen();
-    vector<ColorType> sortBlue();
-    vector<ColorType> sortAlpha();
+    vector<ColorType> sortGreen(vector<ColorType>);
+    vector<ColorType> sortBlue(vector<ColorType>);
+    vector<ColorType> sortAlpha(vector<ColorType>);
 
 private:
     vector<ColorType> myColors;
