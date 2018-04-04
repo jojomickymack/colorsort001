@@ -3,18 +3,16 @@
 #include "ColorContainer.hpp"
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 
 const int WIDTH = 940, HEIGHT = 720;
 
 int main(int argc, char *argv[]) {
-    SDL_Surface *imageSurface;
     SDL_Surface *windowSurface;
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
-    SDL_Window *window = SDL_CreateWindow("Hello SDL World", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
+    SDL_Window *window = SDL_CreateWindow("Color Sorter", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
 
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -32,19 +30,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if(!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
-        std::cout << "Could not create window: " << IMG_GetError() << std::endl;
-        return 1;
-    }
-
     SDL_Event windowEvent;
 
-    imageSurface = IMG_Load("surface.png");
-    SDL_PixelFormat *fmt = imageSurface->format;
-
-    if (NULL == imageSurface) {
-        std::cout << "SDL could not load image! SDL Error: " << SDL_GetError() << std::endl;
-    }
+    SDL_PixelFormat *fmt = windowSurface->format;
 
     ColorContainer myColors;
     vector<ColorType> myVec = myColors.getColorVec();
@@ -142,9 +130,7 @@ int main(int argc, char *argv[]) {
     }
 
     SDL_DestroyRenderer(renderer);
-    SDL_FreeSurface(imageSurface);
 
-    imageSurface = NULL;
     windowSurface = NULL;
 
     SDL_DestroyWindow(window);
