@@ -23,4 +23,6 @@ target_link_libraries(myapp ${SDL2MAIN_LIBRARY}
     ${SDL2_GFX_LIBRARIES}
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
+
 install(TARGETS myapp DESTINATION ${CMAKE_SOURCE_DIR}/bin)
